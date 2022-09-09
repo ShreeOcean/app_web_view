@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <WebView
-            android:id="@+id/iv_expense_info_attach_dialog"
+            android:id="@+id/web_view"
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:layout_margin="10dp"
