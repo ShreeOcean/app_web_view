@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        file_name = "07092022114344-java_tutorial.pdf";
+//        file_name = "07092022114344-java_tutorial.pdf";
+        file_name = "07092022114344-1662530603380.jpg";
         dialog_attach_expense_info = new Dialog(MainActivity.this);
         binding.expenseAttach.setText(file_name);
         binding.expenseAttach.setOnClickListener(v -> {
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         //TODO: image view code to view image from url (PDF/Image)
         dialogBinding.webView.setWebViewClient(new WebViewClient());
         dialogBinding.webView.getSettings().setJavaScriptEnabled(true);
+//        dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
         dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
 
         dialogBinding.btnCloseDialog.setOnClickListener(v -> {
