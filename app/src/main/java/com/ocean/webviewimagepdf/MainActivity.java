@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.ocean.webviewimagepdf.databinding.ActivityMainBinding;
@@ -27,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        file_name = "07092022114344-java_tutorial.pdf";
-        file_name = "07092022114344-1662530603380.jpg";
+        file_name = "07092022114344-java_tutorial.pdf";
+//        file_name = "07092022114344-1662530603380.jpg";
         dialog_attach_expense_info = new Dialog(MainActivity.this);
         binding.expenseAttach.setText(file_name);
         binding.expenseAttach.setOnClickListener(v -> {
@@ -47,11 +49,19 @@ public class MainActivity extends AppCompatActivity {
         // set background transparent
         dialog_attach_expense_info.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
+        String url_pdf = "https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name ;
         //TODO: image view code to view image from url (PDF/Image)
-        dialogBinding.webView.setWebViewClient(new WebViewClient());
+        dialogBinding.webView.loadUrl(url_pdf);
+        dialogBinding.webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
         dialogBinding.webView.getSettings().setJavaScriptEnabled(true);
 //        dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
-        dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
+//        dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
 
         dialogBinding.btnCloseDialog.setOnClickListener(v -> {
             dialog_attach_expense_info.dismiss();
