@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        file_name = "07092022114344-1662530603380.jpg";
-        dialogBinding.webView.setWebViewClient(new WebViewClient());
+        file_name = "07092022114344-java_tutorial.pdf";
         dialog_attach_expense_info = new Dialog(MainActivity.this);
         binding.expenseAttach.setText(file_name);
         binding.expenseAttach.setOnClickListener(v -> {
@@ -48,15 +47,15 @@ public class MainActivity extends AppCompatActivity {
         dialog_attach_expense_info.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         //TODO: image view code to view image from url (PDF/Image)
-
+        dialogBinding.webView.setWebViewClient(new WebViewClient());
+        dialogBinding.webView.getSettings().setJavaScriptEnabled(true);
+        dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
 
         dialogBinding.btnCloseDialog.setOnClickListener(v -> {
             dialog_attach_expense_info.dismiss();
         });
         dialogBinding.btnDownloadDialog.setOnClickListener(v -> {
             //TODO: download event
-            dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/07092022114344-1662530603380.jpg");
-            dialogBinding.webView.getSettings().setJavaScriptEnabled(true);
 
         });
 
