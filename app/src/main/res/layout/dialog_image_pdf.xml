@@ -19,7 +19,14 @@
             android:layout_margin="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <es.voghdev.pdfviewpager.library.PDFViewPager
+            android:id="@+id/pdfViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:assetFileName="sample.pdf"/>
 
     </LinearLayout>
 

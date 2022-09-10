@@ -52,13 +52,14 @@ public class MainActivity extends AppCompatActivity {
         String url_pdf = "https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name ;
         //TODO: image view code to view image from url (PDF/Image)
         dialogBinding.webView.loadUrl(url_pdf);
-        dialogBinding.webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-        });
+        dialogBinding.webView.setWebViewClient(new WebViewClient());
+        /** dialogBinding.webView.setWebViewClient(new WebViewClient(){
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        view.loadUrl(url);
+        return true;
+        }
+        }); */
         dialogBinding.webView.getSettings().setJavaScriptEnabled(true);
 //        dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
 //        dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
