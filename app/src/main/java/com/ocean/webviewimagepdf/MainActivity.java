@@ -1,20 +1,16 @@
 package com.ocean.webviewimagepdf;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.ViewGroup;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.github.barteksc.pdfviewer.PDFView;
 import com.ocean.webviewimagepdf.databinding.ActivityMainBinding;
 import com.ocean.webviewimagepdf.databinding.DialogImagePdfBinding;
-
-import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Dialog dialog_attach_expense_info;
     DialogImagePdfBinding dialogBinding;
     String file_name, url_string;
+    PDFView pdfView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +31,12 @@ public class MainActivity extends AppCompatActivity {
         dialog_attach_expense_info = new Dialog(MainActivity.this);
         binding.expenseAttach.setText(file_name);
         binding.expenseAttach.setOnClickListener(v -> {
-            openDialogShowDownloadImagePDF();
+
+                openDialogShowDownloadImagePDF();
+
+
         });
+
     }
 
     private void openDialogShowDownloadImagePDF() {
@@ -51,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         String url_pdf = "https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name ;
         //TODO: image view code to view image from url (PDF/Image)
-        dialogBinding.webView.loadUrl(url_pdf);
-        dialogBinding.webView.setWebViewClient(new WebViewClient());
+//        dialogBinding.webView.loadUrl(url_pdf);
+//        dialogBinding.webView.setWebViewClient(new WebViewClient());
 
         /** dialogBinding.webView.setWebViewClient(new WebViewClient(){
         @Override
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         }
         }); */
 
-        dialogBinding.webView.getSettings().setJavaScriptEnabled(true);
+//        dialogBinding.webView.getSettings().setJavaScriptEnabled(true);
 //        dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
 //        dialogBinding.webView.loadUrl("https://dev-test-erp.co.in/basic/expense/panel/uploads/exp_journal/" + file_name);
 
